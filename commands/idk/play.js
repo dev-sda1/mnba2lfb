@@ -27,37 +27,45 @@ module.exports={
 				// Join the voice channel
                 let url = args[0];
 
-                // Create audio player
-                // const player = createAudioPlayer({
-                //     guild: message.guild,
-                //     textChannel: message.channel,
-                //     voiceChannel: channel,
-                //     selfDeaf: false,
-                //     selfMute: false,
-                //     volume: 0.5
-                // })
-
-                const player = createAudioPlayer();
+                //Create audio player
 
                 const connection = joinVoiceChannel({
                     channelId: channel.id,
                     guildId: channel.guild.id,
                     adapterCreator: channel.guild.voiceAdapterCreator,
+                    selfDeaf: false,
+                    selfMute: false
                 })
 
                 //Create audio stream of yt-dl url  
                 var thing;
+
+                console.log(url);
+                
                 const stream = ytdl(url, { filter: 'audioonly' });
                 
-                thing = createAudioResource(stream, {inlineVolume: true}, {
-                    'options': '-vn',
-                    "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
-                });
+                // thing = createAudioResource(stream, {
+                //     'options': '-vn',
+                //     "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
+                // });
 
-                connection.subscribe(player)
+                const player = createAudioPlayer();
+                var resource = createAudioResource(stream, { seek: 0, volume: 1 });
 
                 // Play yt-dl stream
-                player.play(thing);
+                player.play(resource);
+
+                connection.subscribe(player);
+
+
+                player.on(AudioPlayerStatus.Idle, () => {
+                    console.log("Player is currently idle.");
+                });
+
+                player.on('error', error => {
+                    console.error(`Error: ${error.message} with resource ${error.resource.metadata.title}`);
+                    //player.play(getNextResource());
+                });
                 
                 //player.play(resource)
                 //const connection = await channel.join();
