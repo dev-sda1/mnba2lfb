@@ -28,14 +28,16 @@ module.exports={
                 let url = args[0];
 
                 // Create audio player
-                const player = createAudioPlayer({
-                    guild: message.guild,
-                    textChannel: message.channel,
-                    voiceChannel: channel,
-                    selfDeaf: false,
-                    selfMute: false,
-                    volume: 0.5
-                })
+                // const player = createAudioPlayer({
+                //     guild: message.guild,
+                //     textChannel: message.channel,
+                //     voiceChannel: channel,
+                //     selfDeaf: false,
+                //     selfMute: false,
+                //     volume: 0.5
+                // })
+
+                const player = createAudioPlayer();
 
                 const connection = joinVoiceChannel({
                     channelId: channel.id,

@@ -23,8 +23,10 @@
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.4.1",
     "fs": "^0.0.1-security",
+    "node-opus": "^0.3.3",
     "nodemon": "^2.0.15",
     "opus": "^0.0.0",
+    "sodium": "^3.0.2",
     "ytdl-core": "^4.10.1"
   }
 }
