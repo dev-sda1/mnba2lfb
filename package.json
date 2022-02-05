@@ -19,6 +19,7 @@
   "dependencies": {
     "@discordjs/voice": "^0.8.0",
     "ascii-table": "^0.0.9",
+    "discord-ytdl-core": "^5.0.4",
     "discord.js": "^13.6.0",
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.4.1",

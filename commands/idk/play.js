@@ -42,8 +42,13 @@ module.exports={
 
                 console.log(url);
                 
-                const stream = ytdl(url, { filter: 'audioonly' });
-                
+                //const stream = ytdl(url, { filter: 'audioonly' });
+                let stream = ytdl(url, {
+                    filter: "audioonly",
+                    opusEncoded: true,
+                    encoderArgs: ['-af', 'bass=g=10,dynaudnorm=f=200']
+                });
+
                 // thing = createAudioResource(stream, {
                 //     'options': '-vn',
                 //     "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
@@ -52,9 +57,7 @@ module.exports={
                 const player = createAudioPlayer();
                 var resource = createAudioResource(stream, { seek: 0, volume: 1 });
 
-                // Play yt-dl stream
                 player.play(resource);
-
                 connection.subscribe(player);
 
 
@@ -63,7 +66,7 @@ module.exports={
                 });
 
                 player.on('error', error => {
-                    console.error(`Error: ${error.message} with resource ${error.resource.metadata.title}`);
+                    console.error(`An error occured.`);
                     //player.play(getNextResource());
                 });
                 
