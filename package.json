@@ -1,0 +1,30 @@
+{
+  "name": "mnba2lfb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-sda1/mnba2lfb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dev-sda1/mnba2lfb/issues"
+  },
+  "homepage": "https://github.com/dev-sda1/mnba2lfb#readme",
+  "dependencies": {
+    "@discordjs/voice": "^0.8.0",
+    "ascii-table": "^0.0.9",
+    "discord.js": "^13.6.0",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^4.4.1",
+    "fs": "^0.0.1-security",
+    "nodemon": "^2.0.15",
+    "opus": "^0.0.0",
+    "ytdl-core": "^4.10.1"
+  }
+}
