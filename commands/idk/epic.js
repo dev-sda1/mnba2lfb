@@ -15,8 +15,8 @@ module.exports={
         if(result){
             const msg1 = message.channel.send({
                 files: [{
-                    attachment: 'https://cdn.discordapp.com/attachments/939536297591205908/939536332873678848/BEANZ.gif',
-                    name: 'BEANZ.gif'
+                    attachment: 'https://cdn.discordapp.com/attachments/939488140673056831/939864546561118268/ezgif.com-gif-maker_2.gif'
+                    //name: 'BEANZ.gif'
                   }]
             });
         }    
