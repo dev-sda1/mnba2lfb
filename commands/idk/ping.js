@@ -8,12 +8,8 @@ module.exports={
         console.log("fuck");
         // Send embed
         
-        const embed = new MessageEmbed()
-            .setColor("#0099ff")
-            .setTitle("gay")
-            .setDescription("very");
-
-        const msg = await message.channel.send({embeds: [embed]});
+        const msg = await message.channel.send(`Pinging..`);
+        await msg.edit(`Pong!\nServer Latency: ${Math.floor(msg.createdAt - message.createdAt)}ms`);
 
 
         //const msg = await message.channel.send;

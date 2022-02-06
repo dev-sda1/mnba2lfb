@@ -1,4 +1,4 @@
-const {MessageEmbed, Attachment} = require("discord.js");
+const {MessageEmbed, Attachment, MessageActionRow} = require("discord.js");
 
 module.exports={
     name: "epic",
@@ -13,12 +13,12 @@ module.exports={
         const result = message.content.match(regex);
 
         if(result){
-            message.channel.send({
+            const msg1 = message.channel.send({
                 files: [{
                     attachment: 'https://cdn.discordapp.com/attachments/939536297591205908/939536332873678848/BEANZ.gif',
                     name: 'BEANZ.gif'
                   }]
-            })
+            });
         }    
         
         

@@ -55,7 +55,7 @@ module.exports={
                 // });
 
                 const player = createAudioPlayer();
-                var resource = createAudioResource(stream, { seek: 0, volume: 1 });
+                var resource = createAudioResource("/home/parallels/mnba2lfb/hhh.mp3");
 
                 player.play(resource);
                 connection.subscribe(player);
@@ -64,6 +64,14 @@ module.exports={
                 player.on(AudioPlayerStatus.Idle, () => {
                     console.log("Player is currently idle.");
                 });
+
+                player.on(AudioPlayerStatus.Buffering, ()=>{
+                    console.log("Buffering audio...");
+                })
+
+                player.on(AudioPlayerStatus.Playing, () =>{
+                    console.log("Currently playing!");
+                })
 
                 player.on('error', error => {
                     console.error(`An error occured.`);
